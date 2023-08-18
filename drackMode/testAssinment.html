@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Range Balancer</title>
+</head>
+<body>
+  <div id="max-sum-holder">
+    <label for="max-sum">Max Sum:</label>
+    <input type="number" id="max-sum" value="50">
+  </div>
+  <div id="range-a-holder">
+    <label for="range-a">Range A:</label>
+    <input type="range" id="range-a" value="0" max="0">
+    <div id="range-a-value">0</div>
+  </div>
+  <div id="range-b-holder">
+    <label for="range-b">Range B:</label>
+    <input type="range" id="range-b" value="50" max="50">
+    <div id="range-b-value">50</div>
+  </div>
+  <div id="sum">Sum: 50</div>
+
+  <script>
+    const maxSumInput = document.getElementById('max-sum');
+    const rangeAInput = document.getElementById('range-a');
+    const rangeAValue = document.getElementById('range-a-value');
+    const rangeBInput = document.getElementById('range-b');
+    const rangeBValue = document.getElementById('range-b-value');
+    const sumDisplay = document.getElementById('sum');
+
+    function updateRangeAMaxValue() {
+      const maxSum = parseInt(maxSumInput.value);
+      const rangeB = parseInt(rangeBInput.value);
+      rangeAInput.max = Math.min(maxSum, rangeB);
+    }
+
+    function updateRangeBMaxValue() {
+      const maxSum = parseInt(maxSumInput.value);
+      const rangeA = parseInt(rangeAInput.value);
+      rangeBInput.max = Math.min(maxSum, rangeA);
+    }
+
+    function updateSumDisplay() {
+      const rangeA = parseInt(rangeAInput.value);
+      const rangeB = parseInt(rangeBInput.value);
+      const sum = rangeA + rangeB;
+      sumDisplay.textContent = `Sum: ${sum}`;
+    }
+
+    maxSumInput.addEventListener('input', () => {
+      updateRangeAMaxValue();
+      updateRangeBMaxValue();
+      updateSumDisplay();
+    });
+
+    rangeAInput.addEventListener('input', () => {
+      updateRangeBMaxValue();
+      updateSumDisplay();
+    });
+
+    rangeBInput.addEventListener('input', () => {
+      updateRangeAMaxValue();
+      updateSumDisplay();
+    });
+
+    updateRangeAMaxValue();
+    updateRangeBMaxValue();
+    updateSumDisplay();
+  </script>
+</body>
+</html>

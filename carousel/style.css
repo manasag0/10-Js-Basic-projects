@@ -1,0 +1,43 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'poppins',sans-serif;
+    min-height: 100vh;
+}
+
+.carcousel {
+    box-shadow: 2px 2px 6px rgba(0,0,0, 0.2);
+    height: 500px;
+    width: 500px;
+    overflow: hidden;
+
+}
+
+.image-container{
+    display: flex;
+    align-items: center;
+
+    transition: transform 0.4s linear;
+    transform: translateX(0);
+}
+
+img{
+    object-fit:contain;
+    display: flex;
+    align-items: center;
+    margin:0 50px;
+    height: 500px;
+    width: 500px;
+}
+
+img:last-child{
+    margin-left: 35px;
+    margin-right: 20px;
+}
+

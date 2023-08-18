@@ -1,0 +1,23 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+body{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    min-height:100vh ;
+    font-family: 'poppins',sans-serif;
+    background-color: rebeccapurple;
+}
+.btn{
+    background-color: rgb(239, 239, 128);
+    color: rebeccapurple;
+    font-family: inherit;
+    font-size: 1.2rem;
+    padding: 1.5rem 3rem;
+    margin: 1rem;
+    border-radius: 5px;
+    border: 0;
+}
